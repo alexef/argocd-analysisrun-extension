@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/javascript" src="dist/resources/argoproj.io/AnalysisRun/ui/extensions.js"></script>
+    <title>Demo AnalysisRun Extension</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        var resource = {
+            "status": {
+                "dryRunSummary": {}, "message": "Run Terminated",
+                "metricResults": [
+                    {
+                        "count": 1, "measurements": [
+                            { "finishedAt": "2022-12-07T11:37:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:14Z", "value": "1" }
+                        ], "name": "smoketest", "phase": "Successful", "successful": 1
+                    },
+                    {
+                        "count": 20, "measurements": [
+                            { "finishedAt": "2022-12-07T11:37:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:14Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:37:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:38:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:38:14Z", "value": "0" },
+                            { "finishedAt": "2022-12-07T11:38:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:38:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:39:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:39:14Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:39:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:39:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:40:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:40:14Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:40:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:40:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:41:14Z", "phase": "Failed", "startedAt": "2022-12-07T11:41:14Z", "value": "3" },
+                            { "finishedAt": "2022-12-07T11:41:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:41:44Z", "value": "[]" }
+                        ], "name": "4xx-count", "phase": "Successful", "successful": 20
+                    },
+                    {
+                        "count": 20, "measurements": [
+                            { "finishedAt": "2022-12-07T11:37:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:14Z", "value": "1" },
+                            { "finishedAt": "2022-12-07T11:37:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:44Z", "value": "1" },
+                            { "finishedAt": "2022-12-07T11:38:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:38:14Z", "value": "-1" },
+                            { "finishedAt": "2022-12-07T11:38:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:38:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:39:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:39:14Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:39:44Z", "phase": "Failed", "startedAt": "2022-12-07T11:39:44Z", "value": "2" },
+                            { "finishedAt": "2022-12-07T11:40:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:40:14Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:40:44Z", "phase": "Successful", "startedAt": "2022-12-07T11:40:44Z", "value": "[]" },
+                            { "finishedAt": "2022-12-07T11:41:14Z", "phase": "Inconclusive", "startedAt": "2022-12-07T11:41:14Z", "value": "0" },
+                            { "finishedAt": "2022-12-07T11:41:44Z", "phase": "Failed", "startedAt": "2022-12-07T11:41:44Z", "value": "3" }
+                        ], "name": "error-rate", "phase": "Successful", "successful": 20
+                    }
+                ], "phase": "Successful", "runSummary": { "count": 2, "successful": 2 }, "startedAt": "2022-12-07T11:32:14Z"
+            }
+        };
+
+        ReactDOM.render(window.extensions.resources["argoproj.io/AnalysisRun"].component({ tree: {}, resource: resource }), document.getElementById("root"))
+    </script>
+</body>
+
+</html>

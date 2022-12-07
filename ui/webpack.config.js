@@ -1,6 +1,6 @@
 const path = require('path');
 
-const groupKind = 'cert-manager.io/Certificate';
+const groupKind = 'argoproj.io/AnalysisRun';
 
 const config = {
   entry: {
