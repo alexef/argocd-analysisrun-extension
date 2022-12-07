@@ -2,4 +2,4 @@
 
 This extension plots the metricResults on an Argo Rollouts AnalysisRun resource.
 
-![demo](demo.png)
+![demo](demo-updated.png)
