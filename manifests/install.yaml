@@ -1,0 +1,10 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCDExtension
+metadata:
+  name: argo-analysisrun
+  finalizers:
+    - extensions-finalizer.argocd.argoproj.io
+spec:
+  sources:
+  - web:
+      url: https://github.com/alexef/argocd-analysisrun-extension/releases/download/v0.0.1/extension.tar
