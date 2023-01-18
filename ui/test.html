@@ -14,12 +14,53 @@
     <div id="root"></div>
     <script>
         var resource = {
+            "spec": {
+                "args": [
+                    {
+                        "name": "service-name",
+                        "value": "myservice"
+                    },
+                    {
+                        "name": "version",
+                        "value": "v42"
+                    },
+                    {
+                        "name": "time-window",
+                        "value": "300"
+                    },
+                    {
+                        "name": "limit-4xx",
+                        "value": "0"
+                    }
+                ],
+                "metrics": [
+                    {
+                        "name": "smoketest",
+                        "provider": {
+                            "job": {}
+                        }
+                    },
+                    {
+                        "name": "4xx-count",
+                        "provider": {
+                            "datadog": {
+                                "interval": "{{args.time-window}}s",
+                                "query": "sum:istio.mesh.request.count.total{version:{{args.version}}}"
+                            }
+                        },
+                        "successCondition": "default(result, 0) <= {{args.limit-4xx}}"
+                    }
+                ]
+            },
             "status": {
                 "dryRunSummary": {}, "message": "Run Terminated",
                 "metricResults": [
                     {
                         "count": 1, "measurements": [
-                            { "finishedAt": "2022-12-07T11:37:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:14Z", "value": "1" }
+                            {
+                                "finishedAt": "2022-12-07T11:37:14Z", "phase": "Successful", "startedAt": "2022-12-07T11:37:14Z", "value": "1",
+                                "metadata": { "job-name": "59c792ae-68fb-45d1-af15-074783c2f233.smoketest.1" },
+                            },
                         ], "name": "smoketest", "phase": "Successful", "successful": 1
                     },
                     {
